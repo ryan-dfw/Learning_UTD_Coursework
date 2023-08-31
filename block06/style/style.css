@@ -1,0 +1,64 @@
+body, ul, .temp-list, .containers {
+    display: flex;
+    align-items: center;
+}
+body, ul, .temp-list {
+    flex-direction: column;
+    justify-content: center;
+}
+
+body {
+    width: 100vw;
+    background-color: #dedede;
+}
+
+h1, h2, h3, ul, li {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #111122;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+ul, img {
+    width: 30%;
+}
+
+ul {
+    margin-top: -15px;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+img, .temp-list {
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+img {
+    margin-top: -30px;
+    padding: 20px;
+}
+
+.temp-list {
+    width: 90%;
+    padding-bottom: 20px;
+}
+
+.containers {
+    flex-direction: row;
+    justify-content:space-around;
+    width:90%;
+}
+
+#PantrySection {
+    background-color: #eeeedd;;
+}
+
+#FreezerSection {
+    background-color: #ddddee;;
+}
