@@ -32,7 +32,7 @@ function main() {
                     console.log('yes');
                     correctNumbers ++;
                 } else {
-                    const key3Result = key3 - userInput;
+                    const key3Result = 39 - userInput;
                     console.log('consider subtracting ' + (key3Result * -1));
                 }
                 
