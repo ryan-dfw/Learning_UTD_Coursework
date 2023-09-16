@@ -132,7 +132,7 @@ body {
 .head {
   width: 100px;
   height: 100px;
-  background-color: #ffcc66;
+  background-color: #66d6ff;
   border-radius: 50%;
   margin-bottom: -50px;
 }
@@ -140,14 +140,14 @@ body {
 .body {
   width: 20px;
   height: 150px;
-  background-color: #ffcc66;
+  background-color: #66d6ff;
   margin: 20px auto;
 }
 
 .arm {
   width: 20px;
   height: 100px;
-  background-color: #ffcc66;
+  background-color: #66d6ff;
   position: absolute;
   margin-top: 30px;
 }
@@ -166,7 +166,7 @@ body {
 .leg {
   width: 20px;
   height: 100px;
-  background-color: #ffcc66;
+  background-color: #66d6ff;
   position: absolute;
 }
 
@@ -182,6 +182,10 @@ body {
   top: 180px;
 }
 
+.hmn2 {
+  background-color: darkblue;
+}
+
 #tcc2 {
   z-index: 1;
 }
@@ -189,6 +193,50 @@ body {
 #w2,
 #w3 {
   position: absolute;
+}
+
+.yellow-circle {
+  visibility: visible;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.yellow-circle2 {
+  visibility: visible;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 300px;
+}
+
+.pink-circle2 {
+  visibility: visible;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 300px;
+}
+
+.pink-circle2 {
+  visibility: visible;
+  width: 30px;
+  height: 30px;
+  background-color: pink;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left: 200px;
 }
 
 @media (max-width: 999px) {

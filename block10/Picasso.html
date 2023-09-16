@@ -89,9 +89,9 @@
                   <div class="leg left-leg"></div>
                   <div class="leg right-leg"></div>
                 </div>
-              </div>
-              <div class="human-holder">
-                <div class="human">
+                <div
+                  class="human"
+                  style="left: 300px; --vw: 50">
                   <div class="head"></div>
                   <div class="body"></div>
                   <div class="arm left-arm"></div>
@@ -99,8 +99,31 @@
                   <div class="leg left-leg"></div>
                   <div class="leg right-leg"></div>
                 </div>
+                <div
+                  class="human"
+                  style="left: 500px; --vw: 50">
+                  <div class="head hmn2"></div>
+                  <div class="body hmn2"></div>
+                  <div class="arm left-arm hmn2"></div>
+                  <div class="arm right-arm hmn2"></div>
+                  <div class="leg left-leg hmn2"></div>
+                  <div class="leg right-leg hmn2"></div>
+                </div>
+                <div
+                  class="human"
+                  style="left: 700px; --vw: 50">
+                  <div class="head hmn2"></div>
+                  <div class="body hmn2"></div>
+                  <div class="arm left-arm hmn2"></div>
+                  <div class="arm right-arm hmn2"></div>
+                  <div class="leg left-leg hmn2"></div>
+                  <div class="leg right-leg hmn2"></div>
+                </div>
               </div>
             </div>
+            <div class="yellow-circle"></div>
+            <div class="yellow-circle2"></div>
+            <div class="pink-circle2"></div>
           </div>
         </div>
         <div class="artline art-lowline">
@@ -129,9 +152,10 @@
       }
 
       window.addEventListener("resize", updateHumanPosition);
-      updateHumanPosition();
+
       window.addEventListener("resize", () => {
         updateViewportWidth();
+        updateHumanPosition();
       });
     </script>
   </body>
