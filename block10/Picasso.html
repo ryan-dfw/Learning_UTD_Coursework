@@ -130,10 +130,65 @@
           <div class="rectangle rec0"></div>
         </div>
       </div>
+      <div
+        class="webpage"
+        id="w4">
+        <div class="artwork trans">
+          <div class="artline art-topline trans">
+            <div class="rectangle rec3 trans"></div>
+            <div class="rectangle rec3 trans"></div>
+            <div class="rectangle rec3 trans"></div>
+          </div>
+          <div class="artline art-midline trans">
+            <div class="rectangle rec1 trans">
+              <div class="triangle-container-container"></div>
+              <div class="triangle-container-container"></div>
+              <div class="triangle-container-container">
+                <div class="triangle-container">
+                  <div
+                    class="t2"
+                    style="visibility: hidden !important"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="artline art-lowline">
+            <div class="rectangle rec0"></div>
+          </div>
+          <div class="formy-spacer"></div>
+          <div
+            class="form-container"
+            style="visibility: visible">
+            <form
+              class="name-email-form"
+              id="myForm">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required />
+
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required />
+
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
       let prevVW = window.innerWidth;
       let prevTop = 0;
+
+      const form = document.getElementById("myForm");
 
       function updateViewportWidth() {
         const vw = window.innerWidth;
@@ -142,8 +197,8 @@
 
       function updateHumanPosition() {
         const vw = window.innerWidth;
-        const vwChange = prevVW - vw; // Calculate the change in viewport width
-        const scaleFactor = 1 / (1 + Math.pow(Math.E, -0.2 * (vw - 300))); // Increase the exponent
+        const vwChange = prevVW - vw;
+        const scaleFactor = 1 / (1 + Math.pow(Math.E, -0.2 * (vw - 300)));
         const newTop = prevTop - (vwChange / 4) * scaleFactor;
         document.documentElement.style.setProperty("--top", `${newTop}px`);
 
@@ -156,6 +211,19 @@
       window.addEventListener("resize", () => {
         updateViewportWidth();
         updateHumanPosition();
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission behavior
+
+        // Get the values of name and email inputs
+        const name = form.querySelector("#name").value;
+        const email = form.querySelector("#email").value;
+
+        // Do any necessary form validation here
+
+        // Redirect to the desired URL
+        window.location.href = "./formsubmitted.html";
       });
     </script>
   </body>
