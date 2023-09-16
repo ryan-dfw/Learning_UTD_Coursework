@@ -60,5 +60,79 @@
         </div>
       </div>
     </div>
+    <div
+      class="webpage"
+      id="w3">
+      <div class="artwork trans">
+        <div class="artline art-topline trans">
+          <div class="rectangle rec3 trans"></div>
+          <div class="rectangle rec3 trans">
+            <p
+              id="viewport-width"
+              style="visibility: visible"></p>
+          </div>
+          <div class="rectangle rec3 trans"></div>
+        </div>
+        <div class="artline art-midline trans">
+          <div class="rectangle rec1 trans">
+            <div class="human-holder-holder">
+              <div
+                class="human-holder"
+                style="--vw: 50">
+                <div
+                  class="human"
+                  style="left: 50px; --vw: 50">
+                  <div class="head"></div>
+                  <div class="body"></div>
+                  <div class="arm left-arm"></div>
+                  <div class="arm right-arm"></div>
+                  <div class="leg left-leg"></div>
+                  <div class="leg right-leg"></div>
+                </div>
+              </div>
+              <div class="human-holder">
+                <div class="human">
+                  <div class="head"></div>
+                  <div class="body"></div>
+                  <div class="arm left-arm"></div>
+                  <div class="arm right-arm"></div>
+                  <div class="leg left-leg"></div>
+                  <div class="leg right-leg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="artline art-lowline">
+          <div class="rectangle rec0"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let prevVW = window.innerWidth;
+      let prevTop = 0;
+
+      function updateViewportWidth() {
+        const vw = window.innerWidth;
+        document.getElementById("viewport-width").textContent = `${vw}`;
+      }
+
+      function updateHumanPosition() {
+        const vw = window.innerWidth;
+        const vwChange = prevVW - vw; // Calculate the change in viewport width
+        const scaleFactor = 1 / (1 + Math.pow(Math.E, -0.2 * (vw - 300))); // Increase the exponent
+        const newTop = prevTop - (vwChange / 4) * scaleFactor;
+        document.documentElement.style.setProperty("--top", `${newTop}px`);
+
+        prevVW = vw;
+        prevTop = newTop;
+      }
+
+      window.addEventListener("resize", updateHumanPosition);
+      updateHumanPosition();
+      window.addEventListener("resize", () => {
+        updateViewportWidth();
+      });
+    </script>
   </body>
 </html>

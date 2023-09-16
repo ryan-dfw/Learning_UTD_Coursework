@@ -13,7 +13,6 @@ body,
 
 .trans {
   visibility: hidden;
-  /* opacity: 0; */
 }
 
 body {
@@ -106,10 +105,166 @@ body {
   z-index: 1;
 }
 
+.human-holder-holder {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  position: relative;
+}
+
+.human-holder {
+  position: absolute;
+  border: 1px solid purple;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  right: calc(var(--vw) * 1vw);
+  transition: right 0.3s;
+  top: var(--top, 0);
+}
+
+.human {
+  visibility: visible !important;
+  position: absolute;
+}
+
+.head {
+  width: 100px;
+  height: 100px;
+  background-color: #ffcc66;
+  border-radius: 50%;
+  margin-bottom: -50px;
+}
+
+.body {
+  width: 20px;
+  height: 150px;
+  background-color: #ffcc66;
+  margin: 20px auto;
+}
+
+.arm {
+  width: 20px;
+  height: 100px;
+  background-color: #ffcc66;
+  position: absolute;
+  margin-top: 30px;
+}
+
+.left-arm {
+  transform: rotate(45deg);
+  top: 70px;
+}
+
+.right-arm {
+  transform: rotate(-45deg);
+  right: 0px;
+  top: 70px;
+}
+
+.leg {
+  width: 20px;
+  height: 100px;
+  background-color: #ffcc66;
+  position: absolute;
+}
+
+.left-leg {
+  transform: rotate(-45deg);
+  left: 70px;
+  top: 180px;
+}
+
+.right-leg {
+  transform: rotate(45deg);
+  right: 70px;
+  top: 180px;
+}
+
 #tcc2 {
   z-index: 1;
 }
 
-#w2 {
+#w2,
+#w3 {
   position: absolute;
+}
+
+@media (max-width: 999px) {
+  .human-holder {
+    transform: scale(0.5);
+    margin-top: 160px;
+  }
+}
+@media (max-width: 950px) {
+  .human-holder {
+    margin-top: 170px;
+  }
+}
+
+@media (max-width: 910px) {
+  .human-holder {
+    margin-top: 190px;
+  }
+}
+
+@media (max-width: 850px) {
+  .human-holder {
+    margin-top: 200px;
+  }
+}
+
+@media (max-width: 754px) {
+  .human-holder {
+    margin-top: 220px;
+  }
+}
+
+@media (max-width: 668px) {
+  .human-holder {
+    margin-top: 240px;
+  }
+}
+
+@media (max-width: 590px) {
+  .human-holder {
+    margin-top: 260px;
+  }
+}
+
+@media (max-width: 510px) {
+  .human-holder {
+    margin-top: 260px;
+  }
+}
+
+@media (max-width: 470px) {
+  .human-holder {
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 410px) {
+  .human-holder {
+    margin-top: 320px;
+  }
+}
+
+@media (max-width: 350px) {
+  .human-holder {
+    margin-top: 340px;
+  }
+}
+
+@media (max-width: 290px) {
+  .human-holder {
+    margin-top: 360px;
+  }
+}
+
+@media (max-width: 230px) {
+  .human-holder {
+    margin-top: 380px;
+  }
 }
