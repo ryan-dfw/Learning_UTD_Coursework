@@ -11,27 +11,28 @@ body,
   align-items: top;
 }
 
+.trans {
+  visibility: hidden;
+  /* opacity: 0; */
+}
+
 body {
-  border: 1px solid red;
   background-color: grey;
 }
 
 .webpage {
-  border: 1px solid purple;
   width: 98%;
 }
 
 .artwork {
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
   min-height: 66vh;
   width: 99%;
   align-items: start;
 }
 
 .artline {
-  border: 1px solid green;
   width: 99%;
   display: flex;
   flex-direction: row;
@@ -52,7 +53,6 @@ body {
 }
 
 .rectangle {
-  border: 1px solid greenyellow;
   background-color: teal;
   height: calc(100% - 20px);
   margin: 10px;
@@ -83,10 +83,6 @@ body {
   justify-content: end;
 }
 
-.triangle-container {
-  /* border: 1px solid green; */
-}
-
 .triangle {
   margin: auto;
   width: 0;
@@ -97,6 +93,23 @@ body {
   z-index: 1;
 }
 
+.t2 {
+  margin: auto;
+  opacity: 100 !important;
+  visibility: visible !important;
+  width: 0;
+  height: 0;
+  padding-top: 10vw;
+  border-bottom: 20vw solid lime;
+  border-left: 10vw solid transparent;
+  border-right: 10vw solid transparent;
+  z-index: 1;
+}
+
 #tcc2 {
-  z-index: 200;
+  z-index: 1;
+}
+
+#w2 {
+  position: absolute;
 }
