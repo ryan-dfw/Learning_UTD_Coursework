@@ -40,13 +40,7 @@ forwardsArrays.forEach((innerArray) =>
 );
 
 for (var i = 1; i <= 100; i++) {
-  var result = "";
-  if (i % 3 === 0) {
-    result = "Fizz";
-  }
-  if (i % 5 === 0) {
-    result += "Buzz";
-  }
+  var result = (i % 3 === 0 ? "Fizz" : "") + (i % 5 === 0 ? "Buzz" : "");
   console.log(result || i);
 }
 
