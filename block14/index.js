@@ -5,19 +5,6 @@ const unsortedArray = [
   [2, 4, 6, 8, 10, 11, 12],
 ];
 
-const oddArraysArray = [];
-
-for (const innerArray of unsortedArray) {
-  const oddArray = [];
-  for (const item of innerArray) {
-    if (item % 2 === 1) {
-      oddArray.push(item);
-    }
-  }
-  oddArraysArray.push(oddArray);
-}
-
-for (const oddArray of oddArraysArray) {
-  const formattedOutput = oddArray.join(", ");
-  console.log(formattedOutput);
-}
+unsortedArray.forEach((innerArray) =>
+  console.log(innerArray.filter((item) => item % 2 === 1).join(", "))
+);
