@@ -27,3 +27,14 @@ stringsArray.forEach((string) => {
     `${string} has ${consonantCount} consonants and ${vowelCount} vowels`
   );
 });
+
+const forwardsArrays = [
+  [1, 2, 3],
+  [1, 3, 5, 7, 9, 11],
+  [20, 50, 30, 60, 200],
+  [1, -1, 2, -3, 5, -8, 13],
+];
+
+forwardsArrays.forEach((innerArray) =>
+  console.log(innerArray.reverse().join(", "))
+);
