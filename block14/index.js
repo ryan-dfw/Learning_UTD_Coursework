@@ -39,7 +39,7 @@ forwardsArrays.forEach((innerArray) =>
   console.log(innerArray.reverse().join(", "))
 );
 
-for (let i = 1; i <= 100; i++)
+for (let i = 1; i < 101; i++)
   console.log(`${i % 3 ? "" : "Fizz"}${i % 5 ? "" : "Buzz"}` || i);
 
 // begin here the code
