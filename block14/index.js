@@ -5,6 +5,10 @@ const numbersArrays = [
   [2, 4, 6, 8, 10, 11, 12],
 ];
 
+numbersArrays.forEach((innerArray) =>
+  console.log(innerArray.filter((item) => item % 2 === 1).join(", "))
+);
+
 const stringsArray = [
   "hello",
   "ukulele",
@@ -13,20 +17,11 @@ const stringsArray = [
   "textbook",
 ];
 
-numbersArrays.forEach((innerArray) =>
-  console.log(innerArray.filter((item) => item % 2 === 1).join(", "))
-);
-
 stringsArray.forEach((string) => {
   let consonantCount = 0;
   let vowelCount = 0;
-
   for (const character of string) {
-    if (/[aeiou]/i.test(character)) {
-      vowelCount++;
-    } else {
-      consonantCount++;
-    }
+    /[aeiou]/i.test(character) ? vowelCount++ : consonantCount++;
   }
   console.log(
     `${string} has ${consonantCount} consonants and ${vowelCount} vowels`
