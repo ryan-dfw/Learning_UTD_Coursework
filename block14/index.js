@@ -81,4 +81,17 @@ for (var i = 1; i <= 100; i++) {
 // with a count of vowels reset each iteration
 // for each character in the considered string
 // should the character test to be aeiou, increment the vowel count by 1, else increment the consonant count by 1
-// print to standard
+// print to system output a formatted string wherein the string is said to have the consonant count of consonants and the vowel count of vowels
+
+// considering each inner array in the forwards arrays,
+// print to system output a joined result of each inner array upon which has been called the reverse function
+
+// let there be an increment which begins at one until it becomes a hundred, incrementing by one each iteration
+// let there be a result which is initially an empty string
+// if the modulo of the increment divided by 3 strictly equals the literal integer zero,
+// result should become Fizz
+// and if the modulo of the increment divided by 5 strictly equals the literal integer zero,
+// result should pop unto itself the characters comprising Buzz
+// regardless, there should be printed to system output result should it not be null, otherwise the string representation of the integer increment
+
+// halt
