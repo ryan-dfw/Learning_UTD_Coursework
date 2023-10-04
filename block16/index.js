@@ -22,13 +22,9 @@ const rocky = {
   coupon: true,
 };
 
-function nadzuke(customer, nameCandidate) {
-  customer.name = nameCandidate;
+function christen(customer, namae) {
+  customer.name = namae;
 }
-
-nadzuke(timmy, "Timmy");
-nadzuke(sarah, "Sarah");
-nadzuke(rocky, "Rocky");
 
 function evaluateCost(customer) {
   let cost = customer.pricePerRefill * customer.refills;
@@ -36,6 +32,10 @@ function evaluateCost(customer) {
   customer.coupon ? (cost -= 10) : cost;
   console.log(`"${customer.name}, your grand total is $${cost}."`);
 }
+
+christen(timmy, "Timmy");
+christen(sarah, "Sarah");
+christen(rocky, "Rocky");
 
 evaluateCost(timmy);
 evaluateCost(sarah);
