@@ -21,3 +21,14 @@ const rocky = {
   subscription: true,
   coupon: true,
 };
+
+function evaluateCost(customer) {
+  let cost = customer.pricePerRefill * customer.refills;
+  customer.subscription ? (cost *= 0.75) : cost;
+  customer.coupon ? (cost -= 10) : cost;
+  return `"${customer.name}, your grand total is $${cost}."`;
+}
+
+console.log(evaluateCost(timmy));
+console.log(evaluateCost(sarah));
+console.log(evaluateCost(rocky));
