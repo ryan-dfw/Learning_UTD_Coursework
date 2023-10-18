@@ -11,7 +11,31 @@ const validateIntegerInput = (userInput) => {
     : (() => {
         throw new Error("Thread panicking: non-integer provided");
       })();
-  process.exit(1);
+};
+
+const validateArrayInput = (userInput) => {
+  const regex = /^(\d\s+)+\d$/;
+  return regex.test(userInput)
+    ? userInput
+    : (() => {
+        throw new Error(
+          "Thread panicking: Invalid input. Enter single-digit positive integers separated by spaces."
+        );
+      })();
+};
+
+const promptForArray = (question, callback) => {
+  rl.question(question, (userInput) => {
+    try {
+      const validArrayInput = validateArrayInput(userInput);
+      const integersArray = validArrayInput.split(" ").map(Number);
+      callback(integersArray);
+    } catch (error) {
+      console.error(error.message);
+      process.exit(1);
+      rl.close();
+    }
+  });
 };
 
 rl.question("Provide a number to be multiplied\n", (userInput1) => {
@@ -20,23 +44,37 @@ rl.question("Provide a number to be multiplied\n", (userInput1) => {
     validNum1 = validateIntegerInput(userInput1);
   } catch (error) {
     console.error(error.message);
+    process.exit(1);
     rl.close();
     return;
   }
 
-  rl.question(
-    "Provide another number to have it be multiplied by\n",
-    (userInput2) => {
-      let validNum2;
-      try {
-        validNum2 = validateIntegerInput(userInput2);
-      } catch (error) {
-        console.error(error.message);
-      }
-
-      console.log(`${validNum1 * validNum2}`);
-
+  rl.question("Provide another number to be multiplied by\n", (userInput2) => {
+    let validNum2;
+    try {
+      validNum2 = validateIntegerInput(userInput2);
+    } catch (error) {
+      console.error(error.message);
+      process.exit(1);
       rl.close();
+      return;
     }
-  );
+
+    console.log(`${validNum1 * validNum2}`);
+
+    promptForArray(
+      "Provide the first array of single-digit numbers separated by spaces\n",
+      (validArray1) => {
+        promptForArray(
+          "Provide the second array of single-digit numbers separated by spaces\n",
+          (validArray2) => {
+            const concatenatedArray = validArray1.concat(validArray2);
+            const sortedArray = concatenatedArray.sort((a, b) => a - b);
+            console.log(JSON.stringify(sortedArray));
+            rl.close();
+          }
+        );
+      }
+    );
+  });
 });

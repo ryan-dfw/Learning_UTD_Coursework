@@ -22,8 +22,9 @@ const rocky = {
   coupon: true,
 };
 
-function christen(customer, namae) {
+function christen(customer, namae, ploopdeloop) {
   customer.name = namae;
+  customer.bloopy = ploopdeloop;
 }
 
 function evaluateCost(customer) {
@@ -35,8 +36,10 @@ function evaluateCost(customer) {
 
 christen(timmy, "Timmy");
 christen(sarah, "Sarah");
-christen(rocky, "Rocky");
+christen(rocky, "Rocky", 3.8);
 
 evaluateCost(timmy);
 evaluateCost(sarah);
 evaluateCost(rocky);
+
+console.log(rocky);
