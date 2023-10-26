@@ -1,0 +1,73 @@
+------------------------------[here shall be the entry point for Unit_Test_Multiplication]------------------------------
+let there be a function known as "multiplication"
+"multiplication" should accept two parameters - multiplicand and multiplier - and return one value, a float named product
+parameter "multiplicand" of "multiplication" should be a real number
+should "multiplicand" be an float, let us jump to line 20
+should "multiplicand" be a string, let us wonder if it represents a real number or does not
+should it represent a real number, let us call toFloat() to return multiplicand as a float, and jump to line 20
+should it represent any other value, let an error be thrown prompting the user to attempt once more
+upon reentry, jump to line 3 and run the logic again
+should "multiplicand" be a character, let us wonder if it represents a real number or does not
+should it represent a real number, let us call toFloat() to return multiplicand as a float, and jump to line 20
+should it represent any other value, let an error be thrown prompting the user to attempt once more
+upon reentry, jump to line 3 and run the logic again
+should "multiplicand" be a boolean, let us set its value to 0 on false or 1 on true, and jump to line 20
+should "multiplicand" be an array, vector, map, set, object, struct, function, null, undefined, NaN, generic, or any other type, let an error be thrown prompting the user to attempt once more
+upon reentry, jump to line 3 and run the logic again
+should "multiplicand" be an integer, let us call toFloat() to return multiplicand as a float, and jump to line 20
+should "multiplicand" be a float, let us jump to line 20 - think we Expect this
+should this line be read, panic
+let us consider the logic between lines 4 and 18 (inclusively) a function with the name "ensureFloat"
+likewise, use ensureFloat to ensure multiplier is similarly a float
+should multiplicand and/or multiplier be 0, we may certainly return 0
+let the returned value be the product of the multiplicand and the multiplier
+STOP
+
+------------------------------[here shall be the entry point for Unit_Test_ConcatOdds]------------------------------
+let there be a function known as "concatOdds"
+"concatOdds" should accept two parameters - an array and an array - and return one value, an array.
+let there be a function known as "validArray"
+"validArray" should accept any number of parameters of any type, and return one value, an array, initializing with a value i and n set to 0.
+for every item in the parameters passed to validArray, let the values of i and n increase by 1.
+should the parameter be an integer, let us jump to line 47
+should the parameter be a string, let us wonder if it represents a real number or does not
+should it represent a real number, let us call toInt() to return itself as an integer, and jump to line 47
+should it represent any other value, let an error be thrown prompting the user to attempt once more
+upon reentry, jump to line 32 and run the logic again
+should the parameter be a character, let us wonder if it represents a real number or does not
+should it represent a real number, let us call toInt() to return itself as an integer, and jump to line 47
+should it represent any other value, let an error be thrown prompting the user to attempt once more
+upon reentry, jump to line 32 and run the logic again
+should the parameter be a boolean, let us set its value to 0 on false or 1 on true, and jump to line 47
+should the parameter be an array, vector, map, set, object, struct, function, null, undefined, NaN, generic, or any other type, let an error be thrown prompting the user to attempt once more
+upon reentry, jump to line 32 and run the logic again
+should the parameter be a float, let us truncate the trailing digits after the radix point to create an integer, and jump to line 47
+should the parameter be an integer, jump to line 47 - think we Expect this
+should this line be read, panic
+decrease the count of i by 1
+should i be greater than zero, jump to line 32
+let us consider the logic between lines 31 and 48 (inclusively) a function with the name "ensureInt"
+map all the outputs of ensureInt as an array<of Integers> of length n
+let us return this array as the first output of validArray
+let us once more use validArray( on ensureInt( on a series of inputs)) to create a second array
+let there be a function known as "isOdd", which accepts one parameter - an integer - and returns an array<of Integers>
+should the modulus of the integer divided by 2 equal 0, if the integer is not part of the array, push the integer onto the array.
+sort the array such that the integer with the lowest value is first and the highest last.
+return the array
+return the array
+return the array
+STOP
+
+------------------------------[here shall be the entry point for FUNCTIONAL_TEST]------------------------------
+let there be a structure which is a shopping cart
+among other parameters, let shopping cart consider a structure which is a user
+among other parameters, let the user have a boolean "loggedIn"
+should the user be logged in, loggedIn is true
+among other parameters, let shopping cart have an i8 representing the amount of items in the cart
+among other parameters, let shopping cart have access to a method doCheckout
+let there be a function allIsGood() which takes many parameters and returns a boolean
+if allIsGood or itemsInCart are false, set checkOutButton's clickability to false
+if allIsGood, itemsInCart, and buttonClicked, do loginCheck
+if not loggedIn, set isGuest to true and run alertGuest()
+doCheckout()
+STOP
