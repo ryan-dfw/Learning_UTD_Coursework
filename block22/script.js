@@ -2,7 +2,7 @@ const newPartyForm = document.querySelector("#new-party-form");
 const partyContainer = document.querySelector("#party-container");
 
 const PARTIES_API_URL =
-  "http://fsa-async-await.herokuapp.com/api/workshop/parties";
+  "https://fsa-async-await.herokuapp.com/api/workshop/parties";
 
 const getAllParties = async () => {
   try {
