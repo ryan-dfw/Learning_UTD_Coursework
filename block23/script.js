@@ -1,33 +1,42 @@
 const playerContainer = document.getElementById("all-players-container");
 const newPlayerFormContainer = document.getElementById("new-player-form");
-
-// Add your cohort name to the cohortName variable below, replacing the 'COHORT-NAME' placeholder
 const cohortName = "2308-ftb-mt-web-pt";
-// Use the APIURL variable for fetch requests
 const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
 
-/**
- * It fetches all players from the API and returns them
- * @returns An array of objects.
- */
 const fetchAllPlayers = async () => {
   try {
+    const response = await fetch(`${APIURL}/players`);
+    const playerData = await response.json();
+    return playerData;
   } catch (err) {
-    console.error("Uh oh, trouble fetching players!", err);
+    console.error("error fetching players!", err);
   }
 };
 
 const fetchSinglePlayer = async (playerId) => {
   try {
+    const response = await fetch(`${APIURL}/players/${playerId}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch player #${playerId}`);
+    }
+    const playerData = await response.json();
+    return playerData;
   } catch (err) {
-    console.error(`Oh no, trouble fetching player #${playerId}!`, err);
+    console.error(`error fetching player #${playerId}!`, err);
   }
 };
 
 const addNewPlayer = async (playerObj) => {
   try {
+    const response = await fetch(`${APIURL}/players`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(playerObj),
+    });
   } catch (err) {
-    console.error("Oops, something went wrong with adding that player!", err);
+    console.error("Error adding that player!", err);
   }
 };
 
