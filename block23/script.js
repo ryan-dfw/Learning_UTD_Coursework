@@ -7,6 +7,7 @@ const fetchAllPlayers = async () => {
   try {
     const response = await fetch(`${APIURL}/players`);
     const playerData = await response.json();
+    console.log("Fetched Players:", playerData);
     return playerData;
   } catch (err) {
     console.error("error fetching players!", err);
@@ -56,9 +57,11 @@ const removePlayer = async (playerId) => {
 };
 
 const renderAllPlayers = (playerList) => {
+  console.log("Received playerList:", playerList);
   try {
-    const playerArray = Array.from(playerList);
+    const playerArray = playerList.data.players;
     let playerContainerHTML = "";
+    console.log(playerArray);
     playerArray.forEach((player) => {
       const playerCardHTML = `
       <div class="player-card">
@@ -139,7 +142,7 @@ const renderNewPlayerForm = () => {
         await addNewPlayer(newPlayerObj);
         const allPlayers = await fetchAllPlayers();
         renderAllPlayers(allPlayers);
-        form.reset();
+        // form.reset();
         console.log("New player added successfully!");
       } catch (err) {
         console.error("Error adding a new player!", err);
@@ -152,11 +155,10 @@ const renderNewPlayerForm = () => {
 
 const init = async () => {
   try {
-    console.log("good init?");
     const players = await fetchAllPlayers();
+    console.log("Players in Init:", players);
     renderAllPlayers(players);
-    renderNewPlayerForm();
-    console.log("good init!");
+    // renderNewPlayerForm();
   } catch (err) {
     console.error("Error initializing", err);
   }
