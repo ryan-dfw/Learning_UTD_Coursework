@@ -3,14 +3,29 @@ import { puppyList } from "./data";
 
 import "./App.css";
 
-function App() {
+const App = () => {
   const [puppies, setPuppies] = useState(puppyList);
   const [featPupId, setFeatPupId] = useState(null);
-  console.log(puppies);
+
+  const handleMouseEnter = (puppyId) => {
+    setFeatPupId(puppyId);
+  };
+
+  const handleMouseLeave = () => {};
+
   const featuredPup = puppies.find((puppy) => puppy.id === featPupId);
 
   return (
     <div>
+      {puppies.map((puppy) => (
+        <p
+          className="link"
+          key={puppy.id}
+          onMouseEnter={() => handleMouseEnter(puppy.id)}
+          onMouseLeave={handleMouseLeave}>
+          {puppy.name}
+        </p>
+      ))}
       {featPupId && (
         <div>
           <h2>{featuredPup.name}</h2>
@@ -20,15 +35,8 @@ function App() {
           </ul>
         </div>
       )}
-      {puppies.map((puppy) => (
-        <p
-          onClick={() => setFeatPupId(puppy.id)}
-          key={puppy.id}>
-          {puppy.name}
-        </p>
-      ))}
     </div>
   );
-}
+};
 
 export default App;
