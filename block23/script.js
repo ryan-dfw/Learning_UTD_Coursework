@@ -158,7 +158,7 @@ const init = async () => {
     const players = await fetchAllPlayers();
     console.log("Players in Init:", players);
     renderAllPlayers(players);
-    // renderNewPlayerForm();
+    renderNewPlayerForm();
   } catch (err) {
     console.error("Error initializing", err);
   }
