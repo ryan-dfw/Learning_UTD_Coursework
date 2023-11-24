@@ -10,19 +10,26 @@ const dummyContacts = [
 export default function ContactList({ setSelectedContactId }) {
   const [contacts, setContacts] = useState(dummyContacts);
   useEffect(() => {
-    async function fetchUsers() {
+    async function fetchContacts() {
       try {
         const res = await fetch(
-          "https://www.fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
+          " https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
         );
-        const json = await res.json();
-      } catch (err) {}
+        const result = await res.json();
+        console.log(result);
+        setContacts(result);
+      } catch (err) {
+        console.error(err);
+      }
     }
+    fetchContacts();
   }, []);
   return (
     <table>
       <thead>
-        <tr colspan="3">Contact list</tr>
+        <tr>
+          <th colSpan="3">Contact list</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
