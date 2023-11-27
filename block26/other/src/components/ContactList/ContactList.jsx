@@ -16,7 +16,6 @@ export default function ContactList({ setSelectedContactId }) {
           " https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users"
         );
         const result = await res.json();
-        console.log(result);
         setContacts(result);
       } catch (err) {
         console.error(err);
@@ -37,7 +36,7 @@ export default function ContactList({ setSelectedContactId }) {
           <td>Email</td>
           <td>Phone</td>
         </tr>
-        {dummyContacts.map((contact) => (
+        {contacts.map((contact) => (
           <ContactRow
             contact={contact}
             setSelectedContactId={setSelectedContactId}

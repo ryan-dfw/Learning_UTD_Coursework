@@ -10,10 +10,9 @@ export default function SelectedContact({ selectedContactId }) {
         );
         const json = await res.json();
         setContact(json);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     }
+    fetchSingleUser(selectedContactId);
   }, []);
   return (
     <div>
