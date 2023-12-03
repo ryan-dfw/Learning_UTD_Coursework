@@ -27,11 +27,7 @@ const PlayerSearch = ({ players, onSearch, APIURL }) => {
               player.name.toLowerCase().includes(searchText.toLowerCase())
             )
             .map((matchingPlayer) => (
-              <PlayerCard
-                key={matchingPlayer.id}
-                player={matchingPlayer}
-                APIURL={APIURL}
-              />
+              <p key={matchingPlayer.id}>{matchingPlayer.name}</p>
             ))}
         </div>
       )}
