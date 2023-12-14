@@ -31,7 +31,12 @@ export default function App() {
             />
             <Route
               path="/account"
-              element={<Account APIURL={APIURL} />}
+              element={
+                <Account
+                  APIURL={APIURL}
+                  token={token}
+                />
+              }
             />
             <Route
               path="/login"

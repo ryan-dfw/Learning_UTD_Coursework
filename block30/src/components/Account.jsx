@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Account = () => {
+const Account = ({ APIURL, token }) => {
   const [accountData, setAccountData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,10 +8,17 @@ const Account = () => {
   useEffect(() => {
     const fetchAccountData = async () => {
       try {
-        const response = await fetch("/api/account");
+        const response = await fetch(`${APIURL}/api/users/me`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         if (!response.ok) {
           throw new Error("Failed to fetch account data");
         }
+
         const data = await response.json();
         setAccountData(data);
       } catch (error) {
@@ -21,8 +28,14 @@ const Account = () => {
       }
     };
 
-    fetchAccountData();
-  }, []);
+    if (token) {
+      fetchAccountData();
+    }
+  }, [APIURL, token]);
+
+  if (!token) {
+    return <p>Please log in to view this page.</p>;
+  }
 
   if (loading) {
     return <p>Loading...</p>;
@@ -33,13 +46,15 @@ const Account = () => {
   }
 
   if (!accountData) {
-    return <p>Please log in or create an account to view this page.</p>;
+    return <p>No account data available.</p>;
   }
 
   return (
     <div>
       <h2>Account Details</h2>
-      <p>Name: {accountData.name}</p>
+      <p>
+        Name: {accountData.firstname} {accountData.lastname}
+      </p>
       <p>Email: {accountData.email}</p>
     </div>
   );
