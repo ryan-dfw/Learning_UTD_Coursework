@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+// register.jsx
 
-const RegistrationForm = () => {
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const Register = ({ APIURL, setToken }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    username: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
   });
@@ -15,11 +21,33 @@ const RegistrationForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your registration logic here using the form data (formData.username, formData.email, and formData.password)
-    console.log("Registration form submitted:", formData);
-    // You can handle the registration logic or make an API call here
+
+    try {
+      const response = await fetch(`${APIURL}/api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+
+        if (result.token) {
+          setToken(result.token);
+          navigate("/login");
+        }
+
+        console.log("Registration successful. Token:", result.token);
+      } else {
+        console.error("Registration failed");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
@@ -27,11 +55,22 @@ const RegistrationForm = () => {
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
+          First Name:
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="firstname"
+            value={formData.firstname}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Last Name:
+          <input
+            type="text"
+            name="lastname"
+            value={formData.lastname}
             onChange={handleChange}
             required
           />
@@ -65,4 +104,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default Register;
