@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const Books = () => {
-  const [books, setBooks] = useState([]);
+  const [responseText, setResponseText] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBooks = async () => {
+    const fetchData = async () => {
       try {
         const response = await fetch("/api/books");
+
         if (!response.ok) {
-          throw new Error("Failed to fetch book data");
+          throw new Error(
+            `Failed to fetch book data. Status: ${response.status}`
+          );
         }
-        const data = await response.json();
-        setBooks(data);
+
+        const text = await response.text();
+        setResponseText(text);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -22,7 +25,7 @@ const Books = () => {
       }
     };
 
-    fetchBooks();
+    fetchData();
   }, []);
 
   if (loading) {
@@ -35,14 +38,8 @@ const Books = () => {
 
   return (
     <div>
-      <h2>Library Catalog</h2>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id}>
-            <Link to={`/books/${book.id}`}>{book.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <h2>Raw Response</h2>
+      <pre>{responseText}</pre>
     </div>
   );
 };
